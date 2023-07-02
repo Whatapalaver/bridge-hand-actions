@@ -80,7 +80,7 @@ def generate_multiple_hands(number=10):
 
 
 if __name__ == "__main__":
-    multi_hands = generate_multiple_hands(10)
+    multi_hands = generate_multiple_hands(1000)
 
     with open("./data/bridge-hands.json", "w") as outfile:
         outfile.write(multi_hands)
