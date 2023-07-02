@@ -2,7 +2,8 @@ name: run main.py
 
 on:
   schedule:
-    - cron: '40 * * * *' # At 01:00 on Monday
+    - cron: '0 1 * * 1' # At 01:00 on Monday
+  workflow_dispatch: # Run workflow manually (without waiting for the cron to be called), through the Github Actions Workflow page directly
 
 jobs:
   build:
