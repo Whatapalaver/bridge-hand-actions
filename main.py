@@ -65,22 +65,26 @@ def generate_multiple_hands(number=10):
     timestamp = nowTime.strftime("%Y-%M-%d-%H%M%S")
     logger.info(f"Generating {number} deals")
     skewed_count, random_count = 0, 0
-    result = {"skewed": [], "random": []}
+    skewed_result = {"deals": []}
+    random_result = {"deals": []}
     iteration = 0
     while (skewed_count or random_count) < number:
         iteration += 1
         skewed, hands = generate_hands(timestamp, iteration)
         if skewed:
-            result["skewed"].append(hands)
+            skewed_result["deals"].append(hands)
             skewed_count += 1
-        if len(result["random"]) < number:
-            result["random"].append(hands)
+        if len(random_result["deals"]) < number:
+            random_result["deals"].append(hands)
             random_count += 1
-    return json.dumps(result)
+    return json.dumps(skewed_result), json.dumps(random_result)
 
 
 if __name__ == "__main__":
-    multi_hands = generate_multiple_hands(1000)
+    skewed_deals, random_deals = generate_multiple_hands(500)
 
-    with open("./data/bridge-hands.json", "w") as outfile:
-        outfile.write(multi_hands)
+    with open("./data/bridge-hands-random.json", "w") as outfile:
+        outfile.write(random_deals)
+
+    with open("./data/bridge-hands-skewed.json", "w") as outfile:
+        outfile.write(skewed_deals)
