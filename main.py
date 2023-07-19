@@ -62,7 +62,7 @@ def generate_hands(timestamp, game_no=1):
 
 def generate_multiple_hands(number=10):
     nowTime = datetime.now()
-    timestamp = nowTime.strftime("%Y-%M-%d-%H%M%S")
+    timestamp = nowTime.strftime("%Y-%m-%d-%H%M%S")
     logger.info(f"Generating {number} deals")
     skewed_count, random_count = 0, 0
     skewed_result = {"deals": []}
