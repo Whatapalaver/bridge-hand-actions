@@ -1,24 +1,24 @@
 [
     {
       "id":1,
-      "Gen": "2023-22-03-092254",
-      "Game": "S1",
-      "N": {
+      "gen": "2023-22-03-092254",
+      "game": "S1",
+      "north": {
         "hand": "87.J863.AT2.6432",
         "hcp": 5,
         "bergen_adj3": 5.5
       },
-      "E": {
+      "east": {
         "hand": "543.754.QJ98.AK8",
         "hcp": 10,
         "bergen_adj3": 9.75
       },
-      "S": {
+      "south": {
         "hand": "KJ9.AKQ2.K54.J95",
         "hcp": 17,
         "bergen_adj3": 16.5
       },
-      "W": {
+      "west": {
         "hand": "AQT62.T9.763.QT7",
         "hcp": 8,
         "bergen_adj3": 8.25
@@ -26,24 +26,24 @@
     },
     {
       "id":2,
-      "Gen": "2023-22-03-092254",
-      "Game": "S2",
-      "N": {
+      "gen": "2023-22-03-092254",
+      "game": "S1",
+      "north": {
         "hand": "87.J863.AT2.6432",
         "hcp": 5,
         "bergen_adj3": 5.5
       },
-      "E": {
+      "east": {
         "hand": "543.754.QJ98.AK8",
         "hcp": 10,
         "bergen_adj3": 9.75
       },
-      "S": {
+      "south": {
         "hand": "KJ9.AKQ2.K54.J95",
         "hcp": 17,
         "bergen_adj3": 16.5
       },
-      "W": {
+      "west": {
         "hand": "AQT62.T9.763.QT7",
         "hcp": 8,
         "bergen_adj3": 8.25
