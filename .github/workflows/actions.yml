@@ -42,7 +42,7 @@ jobs:
       - name: Push v2 skewed to whatapalaver.io
         uses: nkoppel/push-files-to-another-repository@v1.1.3
         env:
-          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-files: 'data/v2/bridge-hands-skewed.json'
           destination-username: 'whatapalaver'
