@@ -60,6 +60,20 @@ def generate_hands(timestamp, game_no=1):
     }
 
 
+def parse_v2_format(v1_hands, count):
+    v2 = {
+        "id": count + 1,
+        "gen": v1_hands["Gen"],
+        "game": v1_hands["Game"],
+        "n": v1_hands["N"],
+        "e": v1_hands["E"],
+        "s": v1_hands["S"],
+        "w": v1_hands["W"],
+    }
+
+    return v2
+
+
 def generate_multiple_hands(number=10):
     nowTime = datetime.now()
     timestamp = nowTime.strftime("%Y-%m-%d-%H%M%S")
@@ -67,24 +81,29 @@ def generate_multiple_hands(number=10):
     skewed_count, random_count = 0, 0
     skewed_result = {"deals": []}
     random_result = {"deals": []}
+    v2_skewed = []
     iteration = 0
     while (skewed_count or random_count) < number:
         iteration += 1
         skewed, hands = generate_hands(timestamp, iteration)
         if skewed:
             skewed_result["deals"].append(hands)
+            v2_skewed.append(parse_v2_format(hands, skewed_count))
             skewed_count += 1
         if len(random_result["deals"]) < number:
             random_result["deals"].append(hands)
             random_count += 1
-    return json.dumps(skewed_result), json.dumps(random_result)
+    return json.dumps(skewed_result), json.dumps(random_result), json.dumps(v2_skewed)
 
 
 if __name__ == "__main__":
-    skewed_deals, random_deals = generate_multiple_hands(500)
+    skewed_deals, random_deals, v2_skewed = generate_multiple_hands(500)
 
     with open("./data/bridge-hands-random.json", "w") as outfile:
         outfile.write(random_deals)
 
     with open("./data/bridge-hands-skewed.json", "w") as outfile:
         outfile.write(skewed_deals)
+
+    with open("./data/v2/bridge-hands-skewed.json", "w") as outfile:
+        outfile.write(v2_skewed)
