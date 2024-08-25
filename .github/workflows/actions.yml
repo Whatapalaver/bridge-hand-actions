@@ -47,5 +47,6 @@ jobs:
           source-files: 'data/v2/bridge-hands-skewed.json'
           destination-username: 'whatapalaver'
           destination-repository: 'whatapalaver.github.io'
+          destination-branch: main
           destination-directory: 'data/bridge/v2'
           commit-email: 'warriorwomenblog@gmail.com'
